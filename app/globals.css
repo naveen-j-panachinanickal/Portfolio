@@ -111,6 +111,79 @@ a {
   box-shadow: var(--shadow);
 }
 
+.contact-dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 1.1rem;
+  z-index: 40;
+  display: flex;
+  width: max-content;
+  margin: 0 auto;
+  align-items: flex-end;
+  gap: 0.7rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.4rem;
+  background: rgba(12, 15, 20, 0.78);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.dock-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.03);
+  color: #f4efe6;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.dock-item svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.dock-item span {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.55rem);
+  transform: translateX(-50%) translateY(4px);
+  padding: 0.32rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(12, 15, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f7e8d2;
+  white-space: nowrap;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.dock-item:hover {
+  transform: translateY(-0.35rem) scale(1.06);
+  border-color: rgba(242, 183, 102, 0.34);
+}
+
+.dock-item:hover span {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .brandmark {
   font-family: var(--font-serif);
   font-size: 1.1rem;
@@ -553,6 +626,27 @@ a {
 }
 
 @media (max-width: 640px) {
+  .contact-dock {
+    gap: 0.45rem;
+    padding: 0.55rem 0.65rem;
+    border-radius: 1.1rem;
+  }
+
+  .dock-item {
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 0.9rem;
+  }
+
+  .dock-item svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .dock-item span {
+    display: none;
+  }
+
   .portfolio-shell {
     width: min(100% - 1rem, 1200px);
     padding-top: 0.5rem;

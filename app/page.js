@@ -119,6 +119,57 @@ function SectionEyebrow({ children }) {
 const resumeUrl =
   "https://www.canva.com/design/DAGgLdUmFqg/FaLT2J80ClpnZ8MAUI4OwA/edit?utm_content=DAGgLdUmFqg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton";
 
+const contactDockItems = [
+  {
+    label: "Email",
+    href: "mailto:naveenjpanachinanickal@gmail.com",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.92-.25L12 11.64 19.08 6.5H4.92Zm14.58 11V8.02l-6.99 5.07a.9.9 0 0 1-1.02 0L4.5 8.02v9.48c0 .28.22.5.5.5h14c.28 0 .5-.22.5-.5Z"
+          fill="currentColor"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/naveenjpanachinanickal/",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M6.56 8.97H3.5V20.5h3.06V8.97Zm.2-3.56c0-.98-.73-1.74-1.73-1.74S3.3 4.43 3.3 5.4c0 .96.72 1.74 1.71 1.74h.02c1 0 1.73-.78 1.73-1.74ZM20.5 13.39c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.1-3.38 1.87v-1.6H9.73c.04 1.06 0 11.92 0 11.92h3.06v-6.66c0-.36.03-.71.13-.96.29-.71.95-1.45 2.06-1.45 1.46 0 2.05 1.1 2.05 2.72v6.35H20.5v-7.11Z"
+          fill="currentColor"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/naveen-j-panachinanickal",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 2.5a9.5 9.5 0 0 0-3 18.52c.48.09.66-.2.66-.46 0-.23-.01-.98-.01-1.78-2.42.45-3.05-.59-3.24-1.13-.1-.28-.52-1.14-.89-1.37-.3-.16-.72-.55-.01-.56.67-.01 1.15.62 1.31.87.77 1.3 2  .94 2.5.72.08-.56.3-.94.54-1.16-2.14-.24-4.38-1.07-4.38-4.76 0-1.05.37-1.91.99-2.58-.1-.24-.43-1.22.1-2.54 0 0 .81-.26 2.65.98a9.1 9.1 0 0 1 4.82 0c1.84-1.25 2.65-.98 2.65-.98.53 1.32.2 2.3.1 2.54.62.67.99 1.53.99 2.58 0 3.7-2.25 4.52-4.39 4.76.35.3.65.88.65 1.79 0 1.29-.01 2.33-.01 2.65 0 .26.18.56.66.46A9.5 9.5 0 0 0 12 2.5Z"
+          fill="currentColor"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Resume",
+    href: resumeUrl,
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M7 3.5A1.5 1.5 0 0 0 5.5 5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8.44a1.5 1.5 0 0 0-.44-1.06l-3-3A1.5 1.5 0 0 0 14 4H7Zm7 .94 2.56 2.56H14V4.44ZM8.5 10.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75Zm0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75Zm0 3.5a.75.75 0 0 1 .75-.75h3.25a.75.75 0 0 1 0 1.5H9.25a.75.75 0 0 1-.75-.75Z"
+          fill="currentColor"
+        />
+      </svg>
+    ),
+  },
+];
+
 function ProjectCard({ project }) {
   return (
     <article className="project-card">
@@ -165,6 +216,22 @@ export default function Home() {
       <div className="ambient ambient-left" />
       <div className="ambient ambient-right" />
       <div className="film-grain" />
+      <div className="contact-dock" aria-label="Quick contact links">
+        {contactDockItems.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+            rel={item.href.startsWith("mailto:") ? undefined : "noreferrer"}
+            className="dock-item"
+            aria-label={item.label}
+            title={item.label}
+          >
+            {item.icon}
+            <span>{item.label}</span>
+          </a>
+        ))}
+      </div>
 
       <header className="topbar">
         <a href="#home" className="brandmark">
