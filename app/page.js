@@ -10,10 +10,10 @@ const featuredProjects = [
       "Helped move a serverless invoice platform from prototype energy into production reality.",
     details: [
       "Built Java microservices on AWS Lambda with API Gateway and DynamoDB single-table patterns.",
-      "Automated environment setup and releases with AWS SAM to reduce manual deployment work.",
+      "Focused mainly on backend feature development for the product, translating requirements into working services and APIs.",
       "Improved compliance and reliability through e-invoicing research, Cognito auth, JWT flows, and stronger test coverage.",
     ],
-    stack: ["Java", "AWS Lambda", "API Gateway", "DynamoDB", "Cognito", "AWS SAM", "JUnit"],
+    stack: ["Java 17", "AWS Lambda", "API Gateway", "DynamoDB", "Cognito", "AWS SAM", "JUnit"],
   },
   {
     id: "02",
@@ -68,11 +68,39 @@ const timeline = [
 ];
 
 const certifications = [
-  "Oracle Java Foundations (2025)",
-  "REST API Intermediate, HackerRank (2025)",
-  "Python for Data Science and AI, IBM (2023)",
-  "Scrum Fundamentals Certified (2022)",
-  "AWS Academy Cloud Foundations (2021)",
+  {
+    title: "Oracle Java Foundations",
+    year: "2025",
+  },
+  {
+    title: "REST API Intermediate, HackerRank",
+    year: "2025",
+    url: "https://www.hackerrank.com/certificates/0fdcf0891bee",
+  },
+  {
+    title: "Microsoft Certified: Azure AI Fundamentals",
+    year: "2023",
+    url: "https://www.credly.com/badges/1b3dda48-78af-4836-8a78-288ad8ae108a/linked_in_profile",
+  },
+  {
+    title: "Python for Data Science and AI, IBM",
+    year: "2023",
+  },
+  {
+    title: "Scrum Fundamentals Certified (SFC)",
+    year: "2022",
+    url: "https://www.scrumstudy.com/certification/verify?type=SFC&number=933353",
+  },
+  {
+    title: "AWS Academy Graduate: Introduction to Cloud Semester 1",
+    year: "2021",
+    url: "https://www.credly.com/badges/085faa52-a560-48c7-915a-af6966ff370a/linked_in_profile",
+  },
+  {
+    title: "AWS Academy Cloud Foundations Training Badge",
+    year: "2021",
+    url: "https://www.credly.com/badges/0864b43f-47e8-4418-a767-7d017cf7ee0a/linked_in_profile",
+  },
 ];
 
 const strengths = [
@@ -87,6 +115,9 @@ const strengths = [
 function SectionEyebrow({ children }) {
   return <p className="section-eyebrow">{children}</p>;
 }
+
+const resumeUrl =
+  "https://www.canva.com/design/DAGgLdUmFqg/FaLT2J80ClpnZ8MAUI4OwA/edit?utm_content=DAGgLdUmFqg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton";
 
 function ProjectCard({ project }) {
   return (
@@ -108,10 +139,13 @@ function ProjectCard({ project }) {
             ))}
           </ul>
 
-          <div className="stack-cloud">
-            {project.stack.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
+          <div className="stack-panel">
+            <span className="stack-label">Built With</span>
+            <div className="stack-list">
+              {project.stack.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -148,42 +182,50 @@ export default function Home() {
         <div className="hero-copy">
           <SectionEyebrow>Software Engineer • Kochi, Kerala</SectionEyebrow>
           <h1>
-            I build cloud-native software with the calm of a craftsman and the scale of
-            modern AWS systems.
+            I build software products with the calm of a craftsman and the scale of modern
+            AWS systems.
           </h1>
-          <p className="hero-lead">
-            This portfolio is designed like a slow cinematic reveal: who I am, what I have
-            built, and how I am growing into an engineer who turns complexity into clear,
-            reliable products.
-          </p>
 
           <div className="hero-actions">
             <a href="#work" className="button-primary">
               Enter the work
             </a>
+            <a href={resumeUrl} target="_blank" rel="noreferrer" className="button-secondary">
+              View Resume
+            </a>
             <a
-              href="https://www.linkedin.com/in/naveenjpanachinanickal/"
+              href="https://github.com/naveen-j-panachinanickal"
               target="_blank"
               rel="noreferrer"
               className="button-secondary"
             >
-              LinkedIn
+              GitHub
             </a>
           </div>
         </div>
 
         <div className="hero-frame">
+          <img
+            src="/hero-main.jpeg"
+            alt="Naveen J Panachinanickal portrait"
+            className="hero-portrait"
+          />
+          <div className="hero-frame-overlay" />
           <div className="frame-label">Now Playing</div>
           <div className="frame-title">Naveen J Panachinanickal</div>
           <p>
-            Junior Software Engineer focused on serverless backend systems, disciplined
+            Software Engineer focused on serverless backend systems, disciplined
             engineering, and product-minded execution.
           </p>
           <div className="signal-list">
-            <span>Java</span>
-            <span>AWS Lambda</span>
-            <span>DynamoDB</span>
+            <span>Maven</span>
+            <span>Java 17</span>
+            <span>Spring Boot</span>
+            <span>JUnit</span>
+            <span>RUST</span>
+            <span>AWS Services</span>
             <span>TypeScript</span>
+            <span>Next.js</span>
           </div>
         </div>
       </section>
@@ -191,7 +233,7 @@ export default function Home() {
       <section id="story" className="story-grid section-block">
         <div className="story-intro">
           <SectionEyebrow>The Story</SectionEyebrow>
-          <h2>From Thodupuzha roots to production-grade cloud systems.</h2>
+          <h2>From ideas to production-grade cloud systems.</h2>
           <p>
             I am a motivated software engineer with hands-on experience developing SaaS
             products using AWS cloud-native and serverless technologies. I enjoy clean Java,
@@ -201,6 +243,20 @@ export default function Home() {
         </div>
 
         <div className="story-cards">
+          <article className="info-card accent-card signal-card">
+            <span className="card-kicker">Future Direction</span>
+            <h3>Still early, and that is the exciting part.</h3>
+            <p className="signal-note">
+              I want to keep growing into the kind of engineer who can design strong
+              systems, contribute to meaningful products, and lead with both clarity and
+              craft.
+            </p>
+            <p className="signal-note">
+              The goal is not only to write code, but to create software that feels
+              dependable, scalable, and thoughtfully made for the people who use it.
+            </p>
+          </article>
+
           <article className="info-card">
             <span className="card-kicker">Identity</span>
             <h3>Builder of dependable systems</h3>
@@ -275,7 +331,17 @@ export default function Home() {
             <span className="card-kicker">Certifications</span>
             <ul className="detail-list">
               {certifications.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={`${item.title}-${item.year}`}>
+                  {item.title} ({item.year})
+                  {item.url ? (
+                    <>
+                      {" "}
+                      <a href={item.url} target="_blank" rel="noreferrer" className="text-link">
+                        View credential
+                      </a>
+                    </>
+                  ) : null}
+                </li>
               ))}
             </ul>
           </article>
@@ -298,7 +364,7 @@ export default function Home() {
       </section>
 
       <section id="contact" className="contact-panel section-block">
-        <SectionEyebrow>Final Frame</SectionEyebrow>
+        <SectionEyebrow>Let's Connect</SectionEyebrow>
         <h2>Let’s build something sharp, scalable, and memorable.</h2>
         <p>
           If you are hiring, collaborating, or just want to talk engineering, I would love
@@ -309,6 +375,9 @@ export default function Home() {
           <a href="mailto:naveenjpanachinanickal@gmail.com" className="button-primary">
             naveenjpanachinanickal@gmail.com
           </a>
+          <a href={resumeUrl} target="_blank" rel="noreferrer" className="button-secondary">
+            View Resume
+          </a>
           <a
             href="https://www.linkedin.com/in/naveenjpanachinanickal/"
             target="_blank"
@@ -316,6 +385,14 @@ export default function Home() {
             className="button-secondary"
           >
             Open LinkedIn
+          </a>
+          <a
+            href="https://github.com/naveen-j-panachinanickal"
+            target="_blank"
+            rel="noreferrer"
+            className="button-secondary"
+          >
+            Open GitHub
           </a>
         </div>
       </section>

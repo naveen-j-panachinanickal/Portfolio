@@ -269,6 +269,25 @@ a {
   min-height: 28rem;
 }
 
+.hero-portrait {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.95) contrast(1.02);
+}
+
+.hero-frame-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(11, 13, 16, 0.12) 0%, rgba(11, 13, 16, 0.18) 30%, rgba(11, 13, 16, 0.88) 100%),
+    linear-gradient(90deg, rgba(11, 13, 16, 0.16) 0%, rgba(11, 13, 16, 0) 35%, rgba(11, 13, 16, 0.24) 100%);
+  pointer-events: none;
+}
+
 .hero-frame::after {
   content: "";
   position: absolute;
@@ -289,10 +308,19 @@ a {
 }
 
 .frame-title {
+  position: relative;
+  z-index: 1;
   margin-top: auto;
   margin-bottom: 0.65rem;
   font-size: 1.9rem;
   font-family: var(--font-serif);
+}
+
+.frame-label,
+.hero-frame p,
+.signal-list {
+  position: relative;
+  z-index: 1;
 }
 
 .signal-list,
@@ -359,6 +387,22 @@ a {
   padding: 1.3rem;
 }
 
+.signal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.signal-note {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.signal-note {
+  margin: 1rem 0 0;
+}
+
 .accent-card {
   background:
     linear-gradient(180deg, rgba(242, 183, 102, 0.08), rgba(255, 255, 255, 0.02)),
@@ -407,6 +451,41 @@ a {
   grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
   gap: 1.4rem;
   margin-top: 1rem;
+}
+
+.stack-panel {
+  align-self: start;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.02);
+}
+
+.stack-label {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.68rem;
+}
+
+.stack-list {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.stack-list span {
+  display: block;
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+  color: #f0e6d7;
+  font-size: 0.8rem;
+  line-height: 1.2;
 }
 
 .text-link {
