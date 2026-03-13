@@ -1,6 +1,37 @@
 "use client";
 
-const featuredProjects = [
+import type { ReactNode } from "react";
+
+type Project = {
+  id: string;
+  title: string;
+  company: string;
+  period: string;
+  summary: string;
+  details: string[];
+  stack: string[];
+  link?: string;
+};
+
+type TimelineItem = {
+  year: string;
+  title: string;
+  body: string;
+};
+
+type Certification = {
+  title: string;
+  year: string;
+  url?: string;
+};
+
+type DockItem = {
+  label: string;
+  href: string;
+  icon: ReactNode;
+};
+
+const featuredProjects: Project[] = [
   {
     id: "01",
     title: "Invotools",
@@ -46,7 +77,7 @@ const featuredProjects = [
   },
 ];
 
-const timeline = [
+const timeline: TimelineItem[] = [
   {
     year: "2019 - 2024",
     title: "Integrated MCA",
@@ -67,7 +98,7 @@ const timeline = [
   },
 ];
 
-const certifications = [
+const certifications: Certification[] = [
   {
     title: "REST API Intermediate, HackerRank",
     year: "2025",
@@ -104,14 +135,10 @@ const strengths = [
   "Collaborative Agile delivery",
 ];
 
-function SectionEyebrow({ children }) {
-  return <p className="section-eyebrow">{children}</p>;
-}
-
 const resumeUrl =
   "https://www.canva.com/design/DAGgLdUmFqg/FaLT2J80ClpnZ8MAUI4OwA/edit?utm_content=DAGgLdUmFqg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton";
 
-const contactDockItems = [
+const contactDockItems: DockItem[] = [
   {
     label: "Email",
     href: "mailto:naveenjpanachinanickal@gmail.com",
@@ -142,7 +169,7 @@ const contactDockItems = [
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path
-          d="M12 2.5a9.5 9.5 0 0 0-3 18.52c.48.09.66-.2.66-.46 0-.23-.01-.98-.01-1.78-2.42.45-3.05-.59-3.24-1.13-.1-.28-.52-1.14-.89-1.37-.3-.16-.72-.55-.01-.56.67-.01 1.15.62 1.31.87.77 1.3 2  .94 2.5.72.08-.56.3-.94.54-1.16-2.14-.24-4.38-1.07-4.38-4.76 0-1.05.37-1.91.99-2.58-.1-.24-.43-1.22.1-2.54 0 0 .81-.26 2.65.98a9.1 9.1 0 0 1 4.82 0c1.84-1.25 2.65-.98 2.65-.98.53 1.32.2 2.3.1 2.54.62.67.99 1.53.99 2.58 0 3.7-2.25 4.52-4.39 4.76.35.3.65.88.65 1.79 0 1.29-.01 2.33-.01 2.65 0 .26.18.56.66.46A9.5 9.5 0 0 0 12 2.5Z"
+          d="M12 2.5a9.5 9.5 0 0 0-3 18.52c.48.09.66-.2.66-.46 0-.23-.01-.98-.01-1.78-2.42.45-3.05-.59-3.24-1.13-.1-.28-.52-1.14-.89-1.37-.3-.16-.72-.55-.01-.56.67-.01 1.15.62 1.31.87.77 1.3 2 .94 2.5.72.08-.56.3-.94.54-1.16-2.14-.24-4.38-1.07-4.38-4.76 0-1.05.37-1.91.99-2.58-.1-.24-.43-1.22.1-2.54 0 0 .81-.26 2.65.98a9.1 9.1 0 0 1 4.82 0c1.84-1.25 2.65-.98 2.65-.98.53 1.32.2 2.3.1 2.54.62.67.99 1.53.99 2.58 0 3.7-2.25 4.52-4.39 4.76.35.3.65.88.65 1.79 0 1.29-.01 2.33-.01 2.65 0 .26.18.56.66.46A9.5 9.5 0 0 0 12 2.5Z"
           fill="currentColor"
         />
       </svg>
@@ -162,7 +189,19 @@ const contactDockItems = [
   },
 ];
 
-function ProjectCard({ project }) {
+type SectionEyebrowProps = {
+  children: ReactNode;
+};
+
+function SectionEyebrow({ children }: SectionEyebrowProps) {
+  return <p className="section-eyebrow">{children}</p>;
+}
+
+type ProjectCardProps = {
+  project: Project;
+};
+
+function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="project-card">
       <div className="project-meta">
