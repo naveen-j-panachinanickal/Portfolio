@@ -446,6 +446,10 @@ a {
   gap: 1rem;
 }
 
+.proof-grid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+}
+
 .info-card,
 .project-card,
 .timeline-item {
@@ -458,6 +462,20 @@ a {
 
 .info-card {
   padding: 1.3rem;
+}
+
+.certifications-card {
+  padding: 1.6rem;
+  min-height: 100%;
+}
+
+.certifications-card .detail-list {
+  margin-top: 1rem;
+}
+
+.certifications-card .detail-list li {
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
 .signal-card {
@@ -612,6 +630,10 @@ a {
   .story-cards,
   .proof-grid {
     grid-template-columns: 1fr;
+  }
+
+  .certifications-card {
+    padding: 1.35rem;
   }
 
   .hero-copy h1 {

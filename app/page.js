@@ -13,7 +13,7 @@ const featuredProjects = [
       "Focused mainly on backend feature development for the product, translating requirements into working services and APIs.",
       "Improved compliance and reliability through e-invoicing research, Cognito auth, JWT flows, and stronger test coverage.",
     ],
-    stack: ["Java 17", "AWS Lambda", "API Gateway", "DynamoDB", "Cognito", "AWS SAM", "JUnit"],
+    stack: ["Java 17", "AWS Serverless", "Maven", "JUnit"],
   },
   {
     id: "02",
@@ -69,10 +69,6 @@ const timeline = [
 
 const certifications = [
   {
-    title: "Oracle Java Foundations",
-    year: "2025",
-  },
-  {
     title: "REST API Intermediate, HackerRank",
     year: "2025",
     url: "https://www.hackerrank.com/certificates/0fdcf0891bee",
@@ -81,10 +77,6 @@ const certifications = [
     title: "Microsoft Certified: Azure AI Fundamentals",
     year: "2023",
     url: "https://www.credly.com/badges/1b3dda48-78af-4836-8a78-288ad8ae108a/linked_in_profile",
-  },
-  {
-    title: "Python for Data Science and AI, IBM",
-    year: "2023",
   },
   {
     title: "Scrum Fundamentals Certified (SFC)",
@@ -235,7 +227,7 @@ export default function Home() {
 
       <header className="topbar">
         <a href="#home" className="brandmark">
-          NJP
+          Naveen J Panachinanickal
         </a>
         <nav className="topnav">
           <a href="#story">Story</a>
@@ -278,7 +270,6 @@ export default function Home() {
             className="hero-portrait"
           />
           <div className="hero-frame-overlay" />
-          <div className="frame-label">Now Playing</div>
           <div className="frame-title">Naveen J Panachinanickal</div>
           <p>
             Software Engineer focused on serverless backend systems, disciplined
@@ -390,24 +381,22 @@ export default function Home() {
       <section className="section-block split-section">
         <div>
           <SectionEyebrow>Proof Points</SectionEyebrow>
-          <h2>Learning backed by certifications, awards, and strong academic foundations.</h2>
+          <h2>Learning backed by certifications and strong academic foundations.</h2>
         </div>
 
         <div className="proof-grid">
-          <article className="info-card">
+          <article className="info-card certifications-card">
             <span className="card-kicker">Certifications</span>
             <ul className="detail-list">
               {certifications.map((item) => (
                 <li key={`${item.title}-${item.year}`}>
-                  {item.title} ({item.year})
                   {item.url ? (
-                    <>
-                      {" "}
-                      <a href={item.url} target="_blank" rel="noreferrer" className="text-link">
-                        View credential
-                      </a>
-                    </>
-                  ) : null}
+                    <a href={item.url} target="_blank" rel="noreferrer" className="text-link">
+                      {item.title}
+                    </a>
+                  ) : (
+                    item.title
+                  )}
                 </li>
               ))}
             </ul>
